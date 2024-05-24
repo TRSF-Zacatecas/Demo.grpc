@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.Demo.Protos";
+
+package payment;
+
+service Payment {
+	rpc SendMoney (PaymentRequest) returns (PaymentResponse);
+}
+
+message PaymentRequest{
+	int32 id = 1;
+	string sender =2;
+	string receiver =3;
+	double amount= 4;
+}
+
+message PaymentResponse {
+	int32 status =1;
+	string message=2;
+}
